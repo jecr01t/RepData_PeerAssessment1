@@ -20,7 +20,7 @@ stepsPDay <- aggregate(steps ~ as.Date(date), srcData, sum, na.rm=TRUE)
 hist(stepsPDay$steps, col=c(20))
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/hist_aveSteps_perDay.png) 
 
 2. Report of **mean** and **median**
 *Mean of total number of steps taken/day: 1.0766189 &times; 10<sup>4</sup>
@@ -54,7 +54,7 @@ dailyAvg<-aggregate(steps ~ interval, data=srcData, mean, na.rm=TRUE)
 ggplot(data=dailyAvg,aes(x=interval,y=steps))+geom_line()+scale_x_discrete(breaks=seq(0,2400, by=100))
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/ave_daily_activity_pattern.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -113,7 +113,7 @@ stepsPDay2 <- aggregate(steps ~ as.Date(date), newData, sum, na.rm=TRUE)
 hist(stepsPDay2$steps, col=c(20))
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/hist_aveSteps_perDay_imputed_data.png) 
 
 Although the shape of the histogram seems to be the same, the values in the y axis,
 especially in the 10000-15000 range are greater than the values observed in the first
@@ -148,6 +148,6 @@ pweekend <- qplot(interval, steps, data=stepsWends, geom = "line") +scale_x_disc
 grid.arrange(pweekday, pweekend, nrow = 2, main = "Diff in activity patterns: wday vs wkend")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
+![plot of chunk unnamed-chunk-9](figure/diff_activity_patterns_wkday_vs_wkend.png) 
 
 
